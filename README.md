@@ -1,2 +1,2 @@
 # Furry-Game
-Remember snake? That's something similar, but better
+Remember Pac-man? Now he's hungry for the coins.

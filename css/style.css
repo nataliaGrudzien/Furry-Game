@@ -10,6 +10,8 @@ body {
 
 section#score {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 #board {
@@ -23,7 +25,7 @@ section#score {
   float: left;
   width: 64px;
   height: 64px;
-  background-color: #a4f442;
+  background-color: #fff;
 }
 
 
@@ -40,10 +42,9 @@ section#score div {
 }
 
 
-
-
 .furry {
-  background-image: url('../images/furry.png');
+  background-image: url('../images/pac-man.gif');
+  transform: rotate(180deg);
   background-repeat: no-repeat;
   background-size: cover;
 }
