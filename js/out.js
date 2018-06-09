@@ -1,1 +1,226 @@
-!function(t){var r={};function i(e){if(r[e])return r[e].exports;var n=r[e]={i:e,l:!1,exports:{}};return t[e].call(n.exports,n,n.exports,i),n.l=!0,n.exports}i.m=t,i.c=r,i.d=function(t,r,e){i.o(t,r)||Object.defineProperty(t,r,{enumerable:!0,get:e})},i.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},i.t=function(t,r){if(1&r&&(t=i(t)),8&r)return t;if(4&r&&"object"==typeof t&&t&&t.__esModule)return t;var e=Object.create(null);if(i.r(e),Object.defineProperty(e,"default",{enumerable:!0,value:t}),2&r&&"string"!=typeof t)for(var n in t)i.d(e,n,function(r){return t[r]}.bind(null,n));return e},i.n=function(t){var r=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(r,"a",r),r},i.o=function(t,r){return Object.prototype.hasOwnProperty.call(t,r)},i.p="",i(i.s=0)}([function(t,r){function i(){this.x=Math.floor(10*Math.random()),this.y=Math.floor(10*Math.random())}var e=new function(){this.board=document.getElementById("board").children,this.furry=new function(){this.x=0,this.y=0,this.direction="right"},this.coin=new i,this.score=0,this.index=function(t,r){return t+10*r},this.showFurry=function(){this.board[this.index(this.furry.x,this.furry.y)].classList.add("furry")},this.hideVisibleFurry=function(){document.querySelector(".furry").classList.remove("furry")},this.showCoin=function(){this.board[this.index(this.coin.x,this.coin.y)].classList.add("coin")},this.moveFurry=function(){this.hideVisibleFurry(),this.showFurry(),"right"===this.furry.direction?this.furry.x=this.furry.x+1:"left"===this.furry.direction?this.furry.x=this.furry.x-1:"up"===this.furry.direction?this.furry.y=this.furry.y-1:"down"===this.furry.direction&&(this.furry.y=this.furry.y+1),this.gameOver(),this.checkCoinCollision()},this.turnFurry=function(t){switch(t.which){case 37:this.furry.direction="left";break;case 38:this.furry.direction="up";break;case 39:this.furry.direction="right";break;case 40:this.furry.direction="down"}},this.checkCoinCollision=function(){this.furry.x===this.coin.x&&this.furry.y===this.coin.y&&(this.board[this.index(this.coin.x,this.coin.y)].classList.remove("coin"),this.score++,document.querySelector("#score strong").innerText=this.score,this.coin=new i,this.showCoin())},this.gameOver=function(){(this.furry.x<0||this.furry.x>9||this.furry.y<0||this.furry.y>9)&&(clearInterval(this.idSetInterval),document.querySelector("#score div").innerText="Game over! Twój wynik to: "+this.score,this.hideVisibleFurry())},this.startGame=function(){var t=this;this.idSetInterval=setInterval(function(){t.moveFurry()},250)}};e.showFurry(),e.showCoin(),e.startGame(),document.addEventListener("keydown",function(t){e.turnFurry(t)})}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "js";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./js/app.js":
+/*!*******************!*\
+  !*** ./js/app.js ***!
+  \*******************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  function Furry() {
+    this.x = 0;
+    this.y = 0;
+    this.direction = "right";
+  };
+
+  function Coin() {
+    this.x = Math.floor(Math.random() * 10);
+    this.y = Math.floor(Math.random() * 10);
+  };
+
+  function Game() {
+    this.board = document.getElementById("board").children;
+    this.furry = new Furry();
+    this.coin = new Coin();
+    this.score = 0;
+    this.index = function (x, y) {
+      return x + y * 10;
+    };
+    this.showFurry = function () {
+      this.board[this.index(this.furry.x, this.furry.y)].classList.add('furry');
+      if (this.furry.direction === "right") {
+        document.querySelector('.furry').style.transform = 'rotate(180deg)';
+      } else if (this.furry.direction === "left") {
+        document.querySelector('.furry').style.transform = 'rotate(0deg)';
+      } else if (this.furry.direction === "up") {
+        document.querySelector('.furry').style.transform = 'rotate(90deg)';
+      } else if (this.furry.direction === "down") {
+        document.querySelector('.furry').style.transform = 'rotate(270deg)';
+      };
+    };
+
+    this.hideVisibleFurry = function () {
+      document.querySelector(".furry").classList.remove('furry');
+    };
+
+    this.showCoin = function () {
+      this.board[this.index(this.coin.x, this.coin.y)].classList.add('coin');
+    };
+
+    this.moveFurry = function () {
+
+      this.hideVisibleFurry();
+
+      if (this.furry.direction === "right") {
+        this.furry.x = this.furry.x + 1;
+      } else if (this.furry.direction === "left") {
+        this.furry.x = this.furry.x - 1;
+      } else if (this.furry.direction === "up") {
+        this.furry.y = this.furry.y - 1;
+      } else if (this.furry.direction === "down") {
+        this.furry.y = this.furry.y + 1;
+      }
+      this.gameOver();
+      this.showFurry();
+      this.checkCoinCollision();
+    };
+
+    this.turnFurry = function (event) {
+      switch (event.which) {
+        case 37:
+          this.furry.direction = "left";
+          break;
+        case 38:
+          this.furry.direction = "up";
+          break;
+        case 39:
+          this.furry.direction = "right";
+          break;
+        case 40:
+          this.furry.direction = "down";
+          break;
+      };
+    };
+
+    this.checkCoinCollision = function () {
+      if (this.furry.x === this.coin.x && this.furry.y === this.coin.y) {
+        this.board[this.index(this.coin.x, this.coin.y)].classList.remove('coin');
+        this.score++;
+        document.querySelector("#score strong").innerText = this.score;
+        this.coin = new Coin();
+        this.showCoin();
+      }
+    };
+
+    this.gameOver = function () {
+      if (this.furry.x < 0 || this.furry.x > 9 || this.furry.y < 0 || this.furry.y > 9) {
+        clearInterval(this.idSetInterval);
+        document.querySelector("#score div").innerText = "Game over! " + "Your result: " + this.score;
+        this.hideVisibleFurry();
+      }
+    };
+
+    this.startGame = function () {
+      var self = this;
+      this.idSetInterval = setInterval(function () {
+        self.moveFurry();
+      }, 250);
+    };
+  };
+
+  var game = new Game();
+  game.showFurry();
+  game.showCoin();
+  game.startGame();
+
+  document.addEventListener('keydown', function (event) {
+    game.turnFurry(event);
+  });
+});
+
+/***/ }),
+
+/***/ 0:
+/*!*************************!*\
+  !*** multi ./js/app.js ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! ./js/app.js */"./js/app.js");
+
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=out.js.map
